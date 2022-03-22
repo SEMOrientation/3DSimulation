@@ -1,0 +1,6 @@
+# backup blend files
+*.blend1
+
+# example code
+sem.py
+sem_modified.py
