@@ -7,7 +7,5 @@ for imf in os.listdir():
     if os.path.splitext(imf)[1].lower() != ".png":
         continue
     im = np.array(Image.open(imf))
-    try:
-        assert im.max() > 10
-    except AssertionError:
+    if im.max() <= 10:
         print(imf)
