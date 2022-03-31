@@ -5,6 +5,8 @@ import os
 import sys
 import subprocess
 
+THRESHOLD = 10
+
 def rerender(blend, frames):
     if isinstance(frames, list):
         frames = ",".join(frames)
@@ -25,7 +27,7 @@ if __name__ == "__main__":
         if ext.lower() != ".png":
             continue
         im = np.array(Image.open(imf))
-        if im.max() <= 10:
+        if im.max() <= THRESHOLD:
             print(imf)
             to_rerender.append(str(int(name)))
     rerender(blend, to_rerender)
