@@ -8,8 +8,12 @@ import subprocess
 THRESHOLD = 10
 
 def rerender(blend, frames):
-    if isinstance(frames, list):
-        frames = ",".join(frames)
+    if not isinstance(frames, list):
+        raise TypeError("frames should be a list")
+    if len(frames) < 1:
+        return
+    
+    frames = ",".join(frames)
     cwd = os.path.abspath(os.getcwd())
     if cwd[-1] != os.path.sep:
         cwd += os.path.sep
